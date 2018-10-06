@@ -20,7 +20,6 @@
 
 //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
         //
-
 $(document).ready(function(){
    $('#modal').modal();
    $('#modal').modal('open'); 
@@ -36,3 +35,8 @@ $(document).ready(function(){
     messagingSenderId: "888406917389"
   };
   firebase.initializeApp(config);
+
+const Calendar = document.querySelector('.datepicker');
+M.Datepicker.init(Calendar,{
+  showClearBtn: true
+});
