@@ -8,7 +8,7 @@ body, html {
 }
 
 .image1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/concert.jpg");
+  background-image: url("../images/concert.jpg");
 
   /* Set a specific height */
   height: 50%;
@@ -21,7 +21,7 @@ body, html {
 }
 
 .image2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/concert.jpg");
+  background-image:  url("../images/event.jpg");
 
   /* Set a specific height */
   height: 50%;
