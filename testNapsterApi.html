@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./testNapsterApi.css">
+</head>
+
+<body>
+    <!-- Search artist box -->
+    <header class="container shadow p-3 mb-3">
+        <div class="container">
+            <div class="col">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on">
+                        <input class="form-control" placeholder="Search your favorite artist" name="artist" id="artist"
+                            type="text">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="search-option-list"></div>
+    </header>
+
+    <!-- Contain music search -->
+    <div class="container shadow p-3 mb-3">
+        <div class="col">
+            <div class="col">
+                <button class="btn btn-default" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</button>
+            </div>
+            <div id="musicList">
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid shadow p-3 mb-3 relative-bottom text-center text-secondary">
+        <p>Copyright &copy</p>
+    </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="./testNapsterApi.js"></script>
+
+</html>
