@@ -1,6 +1,9 @@
+const Calendar = document.querySelector('.datepicker');
+M.Datepicker.init(Calendar, {
+  showClearBtn: true
+});
+
 //ajax call for SeatGeek API---------------------------------------------------------------------------------------
-
-
 function SeatGeek() {
   var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
 
@@ -12,15 +15,13 @@ function SeatGeek() {
     console.log(results);
     console.log(results.events[0]);
 
-
   })
 };
-
 
 SeatGeek();
 
 //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
-//
+
 $(document).ready(function () {
   $('#modal').modal();
   $('#modal').modal('open');
@@ -80,11 +81,4 @@ database.ref().on("child_added", function (childSnapshot) {
   // append new row to table
   $("#new-Artist > tbody").prepend(newRow);
 
-});
-
-
-
-const Calendar = document.querySelector('.datepicker');
-M.Datepicker.init(Calendar, {
-  showClearBtn: true
 });
