@@ -3,25 +3,6 @@ M.Datepicker.init(Calendar, {
   showClearBtn: true
 });
 
-//ajax call for SeatGeek API---------------------------------------------------------------------------------------
-function SeatGeek() {
-  var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
-
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function (results) {
-
-    console.log(results);
-    console.log(results.events[0]);
-
-  })
-};
-
-SeatGeek();
-
-//ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
-
 $(document).ready(function () {
   $('#modal').modal();
   $('#modal').modal('open');
@@ -67,7 +48,7 @@ $('#search-option-list,#musicList,.music-card').click(() => {
     $('#search-option-list').css({ 'display': 'none' });
 })
 
-// first three letters returns artist name for search
+// first three letters returns artist name for search; click option to loadtracks
 $('#topic-input').on({
     input: (evt) => {
         if (evt.target.value.length > 3)
@@ -111,6 +92,8 @@ function loadTracks(evt) {
                </div>`)
             });
             handleSound(arrSongs[0].previewURL);
+            // call and pass artist_name to SeatGeek API
+            seatGeek(artist_name);
         }
     });
 }
@@ -176,6 +159,22 @@ database.ref().on("child_added", function (childSnapshot) {
 
     // append new row to table
     $("#new-artist > tbody").prepend(newRow);
-
 }); 
 // ------------------end code call to Napster API submit search to database and add to recent search list
+
+//ajax call for SeatGeek API---------------------------------------------------------------------------------------
+function seatGeek() {
+    var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
+  
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (results) {
+  
+      console.log(results);
+      console.log(results.events[0]);
+  
+    })
+  };
+  //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
+  
