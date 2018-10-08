@@ -1,14 +1,21 @@
+<!-- Required HTML document type classification for browser compatibility -->
 <!DOCTYPE html>
-<html>
+<!-- Designation of default language; browser may ask to translate if not defaulted -->
+<html lang="en">
 
 <head>
+      <!-- Required meta tags for CSS -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Concert Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <!-- Materialize CSS link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+  <!-- Local CSS link -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+  <!-- Title on browser window/tab -->
+  <title>Concert Live</title>
 </head>
 
 <body>
@@ -31,8 +38,13 @@
         <h5 class="center">Find your artist globally</h5>
 
         <div class="container">
-          <h5 class="light">With Concert Live you can now search your favorite artists and where they're scheduled to play
-            all around the world. Simply search them below, find then next concert in your area and listen to them play.</h5>
+          <h5 class="light">With Concert Live you can now search your favorite artists and where they're scheduled to
+            play
+            all around the world. Simply search them below, find then next concert in your area and listen to them
+            play.</h5>
+          <p class="light">With Concert Live you can now search you artist and where they're scheduled to play. Simply
+            search
+            them below, find then next concert in your area and listen to them play.</p>
         </div>
       </div>
 
@@ -43,7 +55,8 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="autocomplete-input" class="header col s12 light">
+              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="autocomplete-input"
+                class="header col s12 light">
             </div>
           </div>
         </form>
@@ -138,13 +151,15 @@
     </div>
   </footer>
 
-  <!--Scripts-->
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
-  <script src="js/app.js"></script>
-
 </body>
+
+<!-- Firebase Database Link -->
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<!-- CDN JavaScript Library Links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<!-- Local Javascript Links -->
+ <script src="./js/app.js"></script>
 
 </html>
