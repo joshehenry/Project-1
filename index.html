@@ -1,15 +1,21 @@
+<!-- Required HTML document type classification for browser compatibility -->
 <!DOCTYPE html>
-<html>
+<!-- Designation of default language; browser may ask to translate if not defaulted -->
+<html lang="en">
 
 <head>
+  <!-- Required meta tags for CSS -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Concert Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+  <!-- Materialize CSS link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <!-- Local CSS link -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+  <!-- Title on browser window/tab -->
+  <title>Concert Live</title>
 </head>
 
 <body>
@@ -32,26 +38,38 @@
         <h5 class="center">Find your artist globally</h5>
 
         <div class="container">
-          <h5 class="light">With Concert Live you can now search your favorite artists and where they're scheduled to play
-            all around the world. Simply search them below, find then next concert in your area and listen to them play.</h5>
+          <h5 class="light">With Concert Live you can now search your favorite artists and where they're scheduled to
+            play
+            all around the world. Simply search them below, find then next concert in your area and listen to them
+            play.</h5>
+
+          <!-- duplicate lines?? -->
+          <!-- <p class="light">With Concert Live you can now search you artist and where they're scheduled to play. Simply
+            search
+            them below, find then next concert in your area and listen to them play.</p> -->
         </div>
       </div>
 
     </div>
     <br><br>
-
     <div class="container">
       <div class="row">
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="autocomplete-input" class="header col s12 light">
+              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input"
+                class="header col s12 light">
+              <!-- div displaying search options -->
+              <div class="s12 light" id="search-option-list">
+              </div>
             </div>
           </div>
         </form>
       </div>
       <div class="row center">
-        <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a>
+        <!-- replace search button with play/pause audio button -->
+        <a class="btn-large waves-effect waves-red lighten-3" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
+        <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
       </div>
     </div>
     <br><br>
@@ -59,7 +77,8 @@
 
     <div class="container">
       <div class="row">
-        <div class="col s12 m3"></div>
+        <!-- div displaying music tracks -->
+        <div class="col s12 m3" id="musicList"></div>
         <div class="col s12 m6">
           <h3>DATEPICKER</h3>
           <form>
@@ -68,7 +87,15 @@
             </div>
           </form>
         </div>
-        <div class="col s12 m3"></div>
+        <!-- div displaying recent searches -->
+        <div class="col s12 m3" id="new-artist">
+          <p>
+            <h5>Recent Searches</h5>
+          </p>
+          <table class="table table-sm table-hover" id="new-artist">
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -115,8 +142,10 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full
-            time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
+            full
+            time job. Any amount would help support and continue development on this project and is greatly
+            appreciated.</p>
         </div>
 
         <div class="col l3 s12">
@@ -138,12 +167,15 @@
     </div>
   </footer>
 
-  <!--Scripts-->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-  </script>
-  <script src="js/app.js"></script>
-
 </body>
+
+<!-- Firebase Database Link -->
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<!-- CDN JavaScript Library Links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<!-- Local Javascript Links -->
+<script src="./js/app.js"></script>
 
 </html>
