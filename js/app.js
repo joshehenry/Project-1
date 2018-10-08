@@ -3,29 +3,10 @@ M.Datepicker.init(Calendar, {
   showClearBtn: true
 });
 
-//ajax call for SeatGeek API---------------------------------------------------------------------------------------
-function SeatGeek() {
-  var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
-
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function (results) {
-
-    console.log(results);
-    console.log(results.events[0]);
-
-  })
-};
-
-SeatGeek();
-
-//ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
-
-$(document).ready(function () {
-  $('#modal').modal();
-  $('#modal').modal('open');
-});
+// $(document).ready(function () {
+//   $('#modal').modal();
+//   $('#modal').modal('open');
+// });
 
 // ------------------begin code call to Napster API submit search to database and add to recent search list
 // handles for Jukebox()
@@ -67,7 +48,7 @@ $('#search-option-list,#musicList,.music-card').click(() => {
     $('#search-option-list').css({ 'display': 'none' });
 })
 
-// first three letters returns artist name for search
+// first three letters returns artist name for search; click option to loadtracks
 $('#topic-input').on({
     input: (evt) => {
         if (evt.target.value.length > 3)
@@ -77,7 +58,7 @@ $('#topic-input').on({
                 success: function (response) {
                     optionsList.empty();
                     for (var i = 0; i < 5; i++) {
-                        optionsList.append(`<div class="option" data-name=${response.search.data.artists[i].name} data-id=${response.search.data.artists[i].id} onClick="loadTracks(this)">${response.search.data.artists[i].name}</div>`);
+                        optionsList.append(`<div class="option" data-name="${response.search.data.artists[i].name}" data-id="${response.search.data.artists[i].id}" onClick="loadTracks(this)">${response.search.data.artists[i].name}</div>`);
                     }
                 }
             })
@@ -89,8 +70,8 @@ $('#topic-input').on({
 
 // function called to load 10 tracks
 var song_list = $('#musicList');
-var artist_name;
-var artist_id;
+var artist_name = "";
+var artist_id = "";
 
 // function to load top 10 artist tracks from AJAX call to Napster API
 function loadTracks(evt) {
@@ -104,13 +85,15 @@ function loadTracks(evt) {
             var arrSongs = response.tracks;
             arrSongs.forEach((elem) => {
                 song_list.append(
-                    `<div class="music-card" data-song=${elem.previewURL} style="background-image:url(http://direct.napster.com/imageserver/v2/albums/${elem.albumId}/images/200x200.jpg);" onClick="jukeBox.playSelected(this)">
+                    `<div class="music-card" data-song="${elem.previewURL}" style="background-image:url(http://direct.napster.com/imageserver/v2/albums/${elem.albumId}/images/200x200.jpg);" onClick="jukeBox.playSelected(this)">
                 <h6>${elem.name}</h6>
                 <div class="songImg">
                 </div>
                </div>`)
             });
             handleSound(arrSongs[0].previewURL);
+            // call and pass artist_name to SeatGeek API
+            seatGeek(artist_name);
         }
     });
 }
@@ -135,8 +118,8 @@ $("#topic-input").on("click", function (event) {
     // check if input not blank
     if ($("#topic-input").val().trim() != "") {
         // grab user inputs
-    artist_id = $(".option").attr('data-id');
-    artist_name = $(".option").attr('data-name');
+    artist_id = $('.option').attr('data-id');
+    artist_name = $('.option').attr('data-name');
     console.log(artist_id);
     console.log(artist_name);
     // store artist input in newArtist object
@@ -171,11 +154,27 @@ database.ref().on("child_added", function (childSnapshot) {
 
     // create new row; clickable to load top tracks from artist
     var newRow = $("<tr>").append(
-        $(`<td data-name=${artist_name} data-id=${artist_id} onClick="loadTracks(this)">${artist_name}</td>`)
+        $(`<td data-name="${artist_name}" data-id="${artist_id}" onClick="loadTracks(this)">${artist_name}</td>`)
     );
 
     // append new row to table
     $("#new-artist > tbody").prepend(newRow);
-
 }); 
 // ------------------end code call to Napster API submit search to database and add to recent search list
+
+//ajax call for SeatGeek API---------------------------------------------------------------------------------------
+function seatGeek() {
+    var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
+  
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (results) {
+  
+      console.log(results);
+      console.log(results.events[0]);
+  
+    })
+  };
+  //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
+  
