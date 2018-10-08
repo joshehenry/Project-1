@@ -1,6 +1,6 @@
 const Calendar = document.querySelector('.datepicker');
 M.Datepicker.init(Calendar, {
-  showClearBtn: true
+    showClearBtn: true
 });
 
 // $(document).ready(function () {
@@ -78,6 +78,12 @@ function loadTracks(evt) {
     song_list.empty();
     artist_id = $(evt).attr('data-id');
     artist_name = $(evt).attr('data-name');
+    console.log(artist_id);
+    console.log(artist_name);
+
+    // call and pass artist_name to SeatGeek API
+    seatGeek(artist_name);
+    
     $.ajax({
         url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=10`
         ,
@@ -92,8 +98,6 @@ function loadTracks(evt) {
                </div>`)
             });
             handleSound(arrSongs[0].previewURL);
-            // call and pass artist_name to SeatGeek API
-            seatGeek(artist_name);
         }
     });
 }
@@ -118,30 +122,30 @@ $("#topic-input").on("click", function (event) {
     // check if input not blank
     if ($("#topic-input").val().trim() != "") {
         // grab user inputs
-    artist_id = $('.option').attr('data-id');
-    artist_name = $('.option').attr('data-name');
-    console.log(artist_id);
-    console.log(artist_name);
-    // store artist input in newArtist object
-    var newArtist = {
-        name: artist_name,
-        id: artist_id
-    };
-    console.log(newArtist);
+        artist_id = $('.option').attr('data-id');
+        artist_name = $('.option').attr('data-name');
+        // console.log(artist_id);
+        // console.log(artist_name);
+        // store artist input in newArtist object
+        var newArtist = {
+            name: artist_name,
+            id: artist_id
+        };
+        // console.log(newArtist);
 
-    // Push newArtist data to database
-    database.ref().push(newArtist);
+        // Push newArtist data to database
+        database.ref().push(newArtist);
 
-    // Reset artist search field
-    $("#topic-input").val("");
+        // Reset artist search field
+        $("#topic-input").val("");
     }
 });
-console.log(artist_id);
-console.log(artist_name);
+// console.log(artist_id);
+// console.log(artist_name);
 
 // Event listener for addition to Firebase database and adding row to #new-artist tbody
 database.ref().on("child_added", function (childSnapshot) {
-    console.log(childSnapshot.val());
+    // console.log(childSnapshot.val());
 
     // handle for childSnapshot.val();
     var snap = childSnapshot.val();
@@ -149,8 +153,8 @@ database.ref().on("child_added", function (childSnapshot) {
     // grab variables from snap
     artist_id = snap.id;
     artist_name = snap.name;
-    console.log(artist_id);
-    console.log(artist_name);
+    // console.log(artist_id);
+    // console.log(artist_name);
 
     // create new row; clickable to load top tracks from artist
     var newRow = $("<tr>").append(
@@ -159,22 +163,21 @@ database.ref().on("child_added", function (childSnapshot) {
 
     // append new row to table
     $("#new-artist > tbody").prepend(newRow);
-}); 
+});
 // ------------------end code call to Napster API submit search to database and add to recent search list
 
 //ajax call for SeatGeek API---------------------------------------------------------------------------------------
 function seatGeek() {
     var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
-  
+
     $.ajax({
-      url: queryURL,
-      method: "GET"
+        url: queryURL,
+        method: "GET"
     }).then(function (results) {
-  
-      console.log(results);
-      console.log(results.events[0]);
-  
+
+        console.log(results);
+        console.log(results.events[0]);
+
     })
-  };
+};
   //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
-  
