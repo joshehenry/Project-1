@@ -80,13 +80,20 @@ h6 {
 }
 
 #tag-line {
-  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
 }
 
 /* Social Media Icons */
 
-.white{
+.icon{
+  font-size: 3rem;
   color: #fff;
 }
 
@@ -96,4 +103,30 @@ h6 {
   width: 200px;
   top: 50%;
   left: 50%;
+  vertical-align: middle;
+}
+
+/* media queries */
+
+   
+/**************
+    640px
+***************/
+@media screen and (max-width: 640px) {
+  #concert-logo {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #concert-logo {
+    width: 300px;
+  }
+}
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
