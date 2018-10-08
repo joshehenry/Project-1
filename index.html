@@ -4,13 +4,13 @@
 <html lang="en">
 
 <head>
-      <!-- Required meta tags for CSS -->
+  <!-- Required meta tags for CSS -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-    <!-- Materialize CSS link -->
+  <!-- Materialize CSS link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- Local CSS link -->
   <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
@@ -42,9 +42,11 @@
             play
             all around the world. Simply search them below, find then next concert in your area and listen to them
             play.</h5>
-          <p class="light">With Concert Live you can now search you artist and where they're scheduled to play. Simply
+
+          <!-- duplicate lines?? -->
+          <!-- <p class="light">With Concert Live you can now search you artist and where they're scheduled to play. Simply
             search
-            them below, find then next concert in your area and listen to them play.</p>
+            them below, find then next concert in your area and listen to them play.</p> -->
         </div>
       </div>
 
@@ -55,14 +57,19 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="autocomplete-input"
+              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input"
                 class="header col s12 light">
+              <!-- div displaying search options -->
+              <div class="s12 light" id="search-option-list">
+              </div>
             </div>
           </div>
         </form>
       </div>
       <div class="row center">
-        <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a>
+        <!-- replace search button with play/pause audio button -->
+        <a class="btn-large waves-effect waves-red lighten-3" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
+        <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
       </div>
     </div>
     <br><br>
@@ -70,7 +77,8 @@
 
     <div class="container">
       <div class="row">
-        <div class="col s12 m3"></div>
+        <!-- div displaying music tracks -->
+        <div class="col s12 m3" id="musicList"></div>
         <div class="col s12 m6">
           <h3>DATEPICKER</h3>
           <form>
@@ -79,7 +87,15 @@
             </div>
           </form>
         </div>
-        <div class="col s12 m3"></div>
+        <!-- div displaying recent searches -->
+        <div class="col s12 m3" id="new-artist">
+          <p>
+            <h5>Recent Searches</h5>
+          </p>
+          <table class="table table-sm table-hover" id="new-artist">
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -160,6 +176,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <!-- Local Javascript Links -->
- <script src="./js/app.js"></script>
+<script src="./js/app.js"></script>
 
 </html>
