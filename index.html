@@ -1,126 +1,165 @@
+<!-- Required HTML document type classification for browser compatibility -->
 <!DOCTYPE html>
-<html>
+<!-- Designation of default language; browser may ask to translate if not defaulted -->
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Link-Up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
+      <!-- Required meta tags for CSS -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <!-- Materialize CSS link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Local CSS link -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+  <!-- Title on browser window/tab -->
+  <title>Concert Live</title>
 </head>
 
 <body>
-<!--Nav Bar-->
-    <nav class="red lighten-3" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Link-UP</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="login_page.html">Chats</a></li>
-            <li><a href="login_page.html">Events</a></li>
-            <li><a href="login_page.html">Sign-In</a></li>
-          </ul>
-    
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="#">Navbar Link</a></li>
-          </ul>
-          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-      </nav>
-      <div class="section no-pad-bot" id="index-banner">
+
+  <!-- Logo and blurb -->
+  <div class="container">
+    <br><br>
+    <h1 class="header center black-text">Concert Live (logo)</h1>
+  </div>
+
+  <!-- Image 1 -->
+  <div class="image1"></div>
+
+  <!--User selection and results-->
+
+  <div class="container">
+    <div class="section">
+
+      <div class="col l6 s12">
+        <h5 class="center">Find your artist globally</h5>
+
         <div class="container">
-            <br><br>
-            <h1 class="header center black-text">Link-UP</h1>
-            <div class="row center">
-              <h5 class="header col s12 light">Take the awkwardness out of first dates.</h5>
-            </div>
-            <div class="row center">
-              <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Get Started</a>
-            </div>
-            <br><br>
-      
-          </div>
+          <h5 class="light">With Concert Live you can now search your favorite artists and where they're scheduled to
+            play
+            all around the world. Simply search them below, find then next concert in your area and listen to them
+            play.</h5>
+          <p class="light">With Concert Live you can now search you artist and where they're scheduled to play. Simply
+            search
+            them below, find then next concert in your area and listen to them play.</p>
         </div>
-      
-      
-        <div class="container">
-          <div class="section">
-      
-            <!--   Icon Section   -->
-            <div class="row">
-              <div class="col s12 m4">
-                <div class="icon-block">
-                    <img src="images/woman.jpg" alt="Beautiful Woman" height="170px" width="240px">
-                    <h5 class="center">Chat</h5>
-        
-                    <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a arcu nec nulla imperdiet rutrum quis ut metus. Ut pulvinar sed turpis nec volutpat. Fusce a arcu leo. Donec a ligula nec lorem sagittis sodales in et nunc. Fusce tincidunt nulla eget velit lacinia, in consectetur turpis fringilla. Cras ante nisi, convallis at enim id, interdum hendrerit ex. Curabitur sit amet sem vel nisi volutpat eleifend in eu urna. Sed aliquet ipsum est, id sollicitudin dolor viverra nec.</p>
-                  </div>
-                </div>
-        
-                <div class="col s12 m4">
-                  <div class="icon-block">
-                   <img src="images/concert.jpg" alt="Concert" height="170px" width="240px">
-                    <h5 class="center">Pick your options</h5>
-        
-                    <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a arcu nec nulla imperdiet rutrum quis ut metus. Ut pulvinar sed turpis nec volutpat. Fusce a arcu leo. Donec a ligula nec lorem sagittis sodales in et nunc. Fusce tincidunt nulla eget velit lacinia, in consectetur turpis fringilla. Cras ante nisi, convallis at enim id, interdum hendrerit ex. Curabitur sit amet sem vel nisi volutpat eleifend in eu urna. Sed aliquet ipsum est, id sollicitudin dolor viverra nec.</p>
-                  </div>
-                </div>
-        
-                <div class="col s12 m4">
-                  <div class="icon-block">
-                    <img src="images/man.jpg" alt="Handsome Man" height="170px" width="240px">
-                    <h5 class="center">Commonality</h5>
-        
-                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                  </div>
-                </div>
-              </div>
-        
+      </div>
+
+    </div>
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="autocomplete-input"
+                class="header col s12 light">
             </div>
-            <br><br>
           </div>
-        
-          <footer class="page-footer red lighten-3">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">Company Bio</h5>
-                  <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-        
-        
-                </div>
-                <div class="col l3 s12">
-                  <h5 class="white-text">Settings</h5>
-                  <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
-                  </ul>
-                </div>
-                <div class="col l3 s12">
-<!--Social Media Links-->
-                  <h5 class="white-text">Connect</h5>
-                  <ul>
-                    <li><a class="white-text" href="#!">Instagram</a></li>
-                    <li><a class="white-text" href="#!">Twitter</a></li>
-                    <li><a class="white-text" href="#!">Facebook</a></li>
-                    <li><a class="white-text" href="#!">Snapchat</a></li>
-                  </ul>
-                </div>
-              </div>
+        </form>
+      </div>
+      <div class="row center">
+        <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a>
+      </div>
+    </div>
+    <br><br>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m3"></div>
+        <div class="col s12 m6">
+          <h3>DATEPICKER</h3>
+          <form>
+            <div class="input-field">
+              <input type="text" class="datepicker">
             </div>
-            <div class="footer-copyright">
-              <div class="container">
-              Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Manuel, Josh, Malcolm, Riffon</a>
-              </div>
-            </div>
-          </footer>
+          </form>
+        </div>
+        <div class="col s12 m3"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <table class="centered highlight responsive-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Item Name</th>
+            <th>Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!--Image 2-->
+  <div class="image2"></div>
+
+  <!--Footer-->
+
+  <footer class="page-footer red lighten-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
+            full
+            time job. Any amount would help support and continue development on this project and is greatly
+            appreciated.</p>
+        </div>
+
+        <div class="col l3 s12">
+          <!--Social Media Links-->
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Instagram</a></li>
+            <li><a class="white-text" href="#!">Twitter</a></li>
+            <li><a class="white-text" href="#!">Facebook</a></li>
+            <li><a class="white-text" href="#!">Snapchat</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="center hide-on-med-and-down">SkyNet (logo)</div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 
+<!-- Firebase Database Link -->
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<!-- CDN JavaScript Library Links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-<script src="./js/app.js"></script>
+<!-- Local Javascript Links -->
+ <script src="./js/app.js"></script>
 
 </html>

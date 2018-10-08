@@ -1,24 +1,85 @@
-.jumbotron {
-
-    text-align: center;
-    color:white;
-    font-family: 'Luckiest Guy', cursive;
-    background: black;
-}
-
-*navbar {
-
-    font-family: 'Luckiest Guy', cursive;
-
-}
-
-body {
-
-    background-image: url("/images/background.jpg");
-    background-size: 100%; 
+body, html {
+  height: 100%;
 }
 
 .form {
 
     color: white; 
+}
+
+.image1 {
+  background-image: url("../images/concert.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.image2 {
+  background-image:  url("../images/event.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+/* style for musicList, music-card, h6,#search-option-List, option and option:hover */
+#musicList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.music-card {
+  margin-top: 15px;
+  margin-right: 10px;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+}
+
+h6 {
+  background-color: #ffffff;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+#search-option-list {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background-color: transparent;
+}
+
+.option {
+  background-color:transparent;
+  width: 50%;
+  text-align: center;
+  padding: 0 0 10px 10px;
+}
+
+.option:hover{
+  background-color: #afdaeb;
 }
