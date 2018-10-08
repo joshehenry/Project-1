@@ -8,10 +8,12 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+  <!-- Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Luckiest+Guy" rel="stylesheet">
   <!-- Materialize CSS link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
   <!-- Local CSS link -->
   <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
   <!-- Title on browser window/tab -->
@@ -23,8 +25,9 @@
   <!-- Logo and blurb -->
   <div class="container">
     <br><br>
-    <h1 class="header center black-text">Concert Live (logo)</h1>
+    <div class="center"><img id="concert-logo" src="images/concertLive_logo.png"></div>
   </div>
+  <br>
 
   <!-- Image 1 -->
   <div class="image1"></div>
@@ -35,18 +38,15 @@
     <div class="section">
 
       <div class="col l6 s12">
-        <h5 class="center">Find your artist globally</h5>
+        <h3 class="center" id="headline">Your Music. Your Artists. Your Connection.</h3>
 
         <div class="container">
-          <h5 class="light">With Concert Live you can now search your favorite artists and where they're scheduled to
-            play
-            all around the world. Simply search them below, find then next concert in your area and listen to them
-            play.</h5>
-
-          <!-- duplicate lines?? -->
-          <!-- <p class="light">With Concert Live you can now search you artist and where they're scheduled to play. Simply
-            search
-            them below, find then next concert in your area and listen to them play.</p> -->
+          <h5 class="light">With Concert Live you can search your favorite artists and where they're scheduled to play. Whether
+            it be in your town or anywhere around the world. Concert Live has you covered.
+          </h5>
+          <h5 class="light">Simply search your artist below, while you listen to them play and find the next concert that
+            you'd like to hit up.
+          </h5>
         </div>
       </div>
 
@@ -57,8 +57,7 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input"
-                class="header col s12 light">
+              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input" class="header col s12 light">
               <!-- div displaying search options -->
               <div class="s12 light" id="search-option-list">
               </div>
@@ -79,14 +78,17 @@
       <div class="row">
         <!-- div displaying music tracks -->
         <div class="col s12 m3" id="musicList"></div>
-        <div class="col s12 m6">
+
+        <!-- DATEPICKER commented out until we are okay to use-->
+        <!-- <div class="col s12 m6">
           <h3>DATEPICKER</h3>
           <form>
             <div class="input-field">
               <input type="text" class="datepicker">
             </div>
           </form>
-        </div>
+        </div> -->
+
         <!-- div displaying recent searches -->
         <div class="col s12 m3" id="new-artist">
           <p>
@@ -111,19 +113,19 @@
 
         <tbody>
           <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
+            <td>Lorem Ipsum</td>
+            <td>Lorem Ipsum</td>
+            <td>$price</td>
           </tr>
           <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
+            <td>Lorem Ipsum</td>
+            <td>Lorem Ipsum</td>
+            <td>$price</td>
           </tr>
           <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
+            <td>Lorem Ipsum</td>
+            <td>Lorem Ipsum</td>
+            <td>$price</td>
           </tr>
         </tbody>
       </table>
@@ -133,7 +135,11 @@
   <br><br>
 
   <!--Image 2-->
-  <div class="image2"></div>
+  <div class="image2">
+    <h3 id="tag-line">It's all about you.</h3>
+  </div>
+
+  <br>
 
   <!--Footer-->
 
@@ -142,40 +148,40 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
-            full
-            time job. Any amount would help support and continue development on this project and is greatly
-            appreciated.</p>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full
+            time job. Any amount would help support and continue development on this project and is greatly appreciated.
+          </p>
         </div>
+      </div>
 
-        <div class="col l3 s12">
+      <div class="row">
+        <div class="col l5 s12">
           <!--Social Media Links-->
           <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Instagram</a></li>
-            <li><a class="white-text" href="#!">Twitter</a></li>
-            <li><a class="white-text" href="#!">Facebook</a></li>
-            <li><a class="white-text" href="#!">Snapchat</a></li>
-          </ul>
+          <a class="icon" href="#" target="_blank" alt="Instagram"><i class="fa fa-instagram"></i></a>
+          <a class="icon" href="#" target="_blank" alt="Twitter"><i class="fa fa-twitter"></i></a>
+          <a class="icon" href="#" target="_blank" alt="Facebook"><i class="fa fa-facebook"></i></a>
+          <a class="icon" href="#" target="_blank" alt="Snapchat"><i class="fa fa-snapchat"></i></a><br>
+          <span>Copyright&copy;2018</span>
         </div>
       </div>
     </div>
+
     <div class="footer-copyright">
       <div class="container">
-        <div class="center hide-on-med-and-down">SkyNet (logo)</div>
+        <div class="center hide-on-med-and-down">powered by <img id="skynet-logo" src="images/skynet_horizontal_white.png"></div>
       </div>
     </div>
   </footer>
 
-</body>
+  <!-- Firebase Database Link -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+  <!-- CDN JavaScript Library Links -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <!-- Local Javascript Links -->
+  <script src="./js/app.js"></script>
 
-<!-- Firebase Database Link -->
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
-<!-- CDN JavaScript Library Links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-<!-- Local Javascript Links -->
-<script src="./js/app.js"></script>
+</body>
 
 </html>
