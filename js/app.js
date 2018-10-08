@@ -83,7 +83,7 @@ function loadTracks(evt) {
 
     // call and pass artist_name to SeatGeek API
     seatGeek(artist_name);
-    
+
     $.ajax({
         url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=10`
         ,
