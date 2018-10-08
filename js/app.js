@@ -35,7 +35,7 @@ function Jukebox() {
     }
     // play this clicked
     this.playSelected = (evt) => {
-        handleSound($(evt).attr("data-song"));
+        handleSound($(evt).attr('data-song'));
     }
 }
 
@@ -117,10 +117,10 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // listener for search entry w/prevent form submission upon page load
-$("#topic-input").on("click", function (event) {
+$('#topic-input').on('click', function (event) {
     event.preventDefault();
     // check if input not blank
-    if ($("#topic-input").val().trim() != "") {
+    if ($('#topic-input').val().trim() != "") {
         // grab user inputs
         artist_id = $('.option').attr('data-id');
         artist_name = $('.option').attr('data-name');
@@ -137,14 +137,14 @@ $("#topic-input").on("click", function (event) {
         database.ref().push(newArtist);
 
         // Reset artist search field
-        $("#topic-input").val("");
+        $('#topic-input').val("");
     }
 });
 // console.log(artist_id);
 // console.log(artist_name);
 
 // Event listener for addition to Firebase database and adding row to #new-artist tbody
-database.ref().on("child_added", function (childSnapshot) {
+database.ref().on('child_added', function (childSnapshot) {
     // console.log(childSnapshot.val());
 
     // handle for childSnapshot.val();
@@ -162,7 +162,7 @@ database.ref().on("child_added", function (childSnapshot) {
     );
 
     // append new row to table
-    $("#new-artist > tbody").prepend(newRow);
+    $('#new-artist > tbody').prepend(newRow);
 });
 // ------------------end code call to Napster API submit search to database and add to recent search list
 
