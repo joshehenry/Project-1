@@ -32,28 +32,39 @@ var handleSound = (index) => {
 
 // Napster API key
 var apiKey = "MjYxOTU3NTItZjAzZC00YTJlLWI0NTItY2IzYTkzNmNjZTc0";
-var options_list = $('#search-option-list');
+var optionsList = $('#search-option-list');
+
+// display search options
+$('#search-option-list,#musicList,.music-card').click(() => {
+  $('#search-option-list').css({ 'display': 'none' });
+})
 
 // call first five artist names; click to search; display in search-option-list div
-$("#queryArtist").on("input", (evt) => {
-  if (evt.target.value.length > 3)
-    $.ajax({
-      url: `http://api.napster.com/v2.2/search?apikey=${apiKey}&query=${evt.target.value}&type=artist`
-      ,
-      success: function (response) {
-        options_list.empty();
-        for (var i = 0; i < 5; i++) {
-          options_list.append(`<div class="option" data-id=${response.search.data.artists[i].id} onClick="loadTracks(this)">${response.search.data.artists[i].name}</div>`);
+$('#queryArtist').on({
+  input: (evt) => {
+    if (evt.target.value.length > 3)
+      $.ajax({
+        url: `http://api.napster.com/v2.2/search?apikey=${apiKey}&query=${evt.target.value}&type=artist`
+        ,
+        success: function (response) {
+          optionsList.empty();
+          for (var i = 0; i < 5; i++) {
+            optionsList.append(`<div class="option" data-id=${response.search.data.artists[i].id} onClick="loadTracks(this)">${response.search.data.artists[i].name}</div>`);
+          }
         }
-      }
-    });
+      })
+  },
+  focus: (evt) => {
+    $('#search-option-list').css({ 'display': 'flex' });
+  }
 })
 
 // function called to load 10 tracks
 var song_list = $('#musicList');
 
 function loadTracks(evt) {
-  var artist_id = evt.getAttribute('data-id');
+  var artist_id;
+  artist_id = (typeof evt === 'string')? evt : evt.getAttribute('data-id');
   $.ajax({
     url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=10`
     ,
@@ -62,12 +73,11 @@ function loadTracks(evt) {
       arrSongs.forEach((elem) => {
         song_list.prepend(
           `<div class="music-card" data-song=${elem.previewURL} style="background-image:url(http://direct.napster.com/imageserver/v2/albums/${elem.albumId}/images/200x200.jpg);" onClick="jukeBox.playSelected(this)">
-             <a rel="noopener noreferrer" target="_blank" href=${artists}> <div class="songImg"> Click me for tickets!
-            <h5>${elem.name}</h6> 
+            <h6>${elem.name}</h6>
+            <div class="songImg">
             </div>
-            </a>
-            </div>`)
-      });
+           </div>`)
+        });
       handleSound(arrSongs[0].previewURL);
     }
   });
@@ -92,13 +102,13 @@ function SeatGeek() {
 //ajax call for SeatGeek API---------------------------------------------------------------------------------------
 SeatGeek();
 
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyD6nJlQQmvGywIq2nVo1MLLRkV3y1WYi2s",
-  authDomain: "skynetdate.firebaseapp.com",
-  databaseURL: "https://skynetdate.firebaseio.com",
-  projectId: "skynetdate",
-  storageBucket: "skynetdate.appspot.com",
-  messagingSenderId: "888406917389"
-};
-firebase.initializeApp(config);
+// // Initialize Firebase
+// var config = {
+//   apiKey: "AIzaSyD6nJlQQmvGywIq2nVo1MLLRkV3y1WYi2s",
+//   authDomain: "skynetdate.firebaseapp.com",
+//   databaseURL: "https://skynetdate.firebaseio.com",
+//   projectId: "skynetdate",
+//   storageBucket: "skynetdate.appspot.com",
+//   messagingSenderId: "888406917389"
+// };
+// firebase.initializeApp(config);
