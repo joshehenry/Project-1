@@ -1,7 +1,8 @@
-const Calendar = document.querySelector('.datepicker');
-M.Datepicker.init(Calendar, {
-    showClearBtn: true
-});
+// Materialize Calendar app
+// const Calendar = document.querySelector('.datepicker');
+// M.Datepicker.init(Calendar, {
+//     showClearBtn: true
+// });
 
 // ------------------begin code call to Napster API submit search to database and add to recent search list
 // handles for Jukebox()
@@ -84,7 +85,7 @@ function loadTracks(evt) {
     seatGeek(artist_name);
 
     $.ajax({
-        url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=10`
+        url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=12`
         ,
         success: function (response) {
             var arrSongs = response.tracks;
