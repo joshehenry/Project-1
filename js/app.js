@@ -1,7 +1,8 @@
-const Calendar = document.querySelector('.datepicker');
-M.Datepicker.init(Calendar, {
-    showClearBtn: true
-});
+// Materialize Calendar app
+// const Calendar = document.querySelector('.datepicker');
+// M.Datepicker.init(Calendar, {
+//     showClearBtn: true
+// });
 
 // ------------------begin code call to Napster API submit search to database and add to recent search list
 // handles for Jukebox()
@@ -42,7 +43,7 @@ var optionsList = $('#search-option-list');
 var clientID = "OTA5NzI3MnwxNTM4NTMyNDM0LjI0"
 
 // display search options
-$('#search-option-list,#musicList,.music-card').click(() => {
+$('#search-option-list, #musicList, .music-card').click(() => {
     $('#search-option-list').css({ 'display': 'none' });
 })
 
@@ -59,7 +60,7 @@ $('#topic-input').on({
                         optionsList.append(`<div class="option" data-name="${response.search.data.artists[i].name}" data-id="${response.search.data.artists[i].id}" onClick="loadTracks(this)">${response.search.data.artists[i].name}</div>`);
                     }
                 }
-            })     
+            })
     },
     focus: (evt) => {
         $('#search-option-list').css({ 'display': 'flex' });
@@ -137,6 +138,7 @@ $('#topic-input').on('click', function (event) {
 
         // Reset artist search field
         $('#topic-input').val("");
+        $(optionsList).empty();
     }
 });
 
@@ -157,7 +159,7 @@ database.ref().limitToLast(10).on('child_added', function (childSnapshot) {
 
     // create new row; clickable to load top tracks from artist
     var newRow = $("<tr>").append(
-        $(`<td data-name="${artist_name}" data-id="${artist_id}" onClick="loadTracks(this)">${artist_name}</td>`)
+        $(`<td class="waves-effect" data-name="${artist_name}" data-id="${artist_id}" onClick="loadTracks(this)">${artist_name}</td>`)
     );
 
     // append new row to table
@@ -166,8 +168,8 @@ database.ref().limitToLast(10).on('child_added', function (childSnapshot) {
 // ------------------end code call to Napster API submit search to database and add to recent search list
 
 //ajax call for SeatGeek API---------------------------------------------------------------------------------------
-function seatGeek() {    
-    
+function seatGeek() {
+
     var queryURL = `https://api.seatgeek.com/2/performers?q=${artist_name}&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0`
 
     $.ajax({
@@ -181,7 +183,7 @@ function seatGeek() {
 
         // replace html <a class="url"></a>
         $(".url").replaceWith(`<a class="url" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
-        
+
     })
 };
   //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
