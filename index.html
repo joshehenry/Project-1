@@ -41,10 +41,12 @@
         <h3 class="center" id="headline">Your Music. Your Artists. Your Connection.</h3>
 
         <div class="container">
-          <h5 class="light">With Concert Live you can search your favorite artists and where they're scheduled to play. Whether
+          <h5 class="light">With Concert Live you can search your favorite artists and where they're scheduled to play.
+            Whether
             it be in your town or anywhere around the world. Concert Live has you covered.
           </h5>
-          <h5 class="light">Simply search your artist below, while you listen to them play and find the next concert that
+          <h5 class="light">Simply search your artist below, while you listen to them play and find the next concert
+            that
             you'd like to hit up.
           </h5>
         </div>
@@ -68,25 +70,28 @@
       <form class="col m10 s12">
         <div class="row">
           <div class="input-field col m10 s12">
-            <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input" class="header col s12 light">
-            <div class="url"><a href=""></a></div>
+            <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input"
+              class="header col s12 light">
+            <!-- div displaying search options -->
+            <div class="col s12 light" id="search-option-list"></div>
           </div>
 
           <div class="row center">
             <!-- replace search button with play/pause audio button -->
+
             <a class="btn-large waves-effect waves-red lighten-3" id="button-font" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
+            <a id="url"></a>
+
             <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
+
+            <!-- div Hyperlink to get tickets -->
+            <div class="row center">
+
+            </div>
           </div>
 
-          <!-- div displaying search options -->
-          <div class="col s12 light" id="search-option-list"></div>
-
-          <!-- <div class="container">
-            <div class="row"> -->
           <!-- div displaying music tracks -->
-          <div class="col s12" id="musicList"></div>
-          <!-- </div>
-          </div> -->
+          <div class="col s12 light" id="musicList"></div>
         </div>
       </form>
     </div>
@@ -152,6 +157,7 @@
   <footer class="page-footer blue-grey lighten-1">
     <div class="container">
       <div class="row">
+
         <div class="col l10 s12">
           <h5 class="white-text footer-font">Company Bio</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full
@@ -181,7 +187,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
   <!-- CDN JavaScript Library Links -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
   <!-- Local Javascript Links -->
   <script src="./js/app.js"></script>
 
