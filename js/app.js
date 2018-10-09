@@ -3,10 +3,6 @@ M.Datepicker.init(Calendar, {
     showClearBtn: true
 });
 
-// $(document).ready(function () {
-//   $('#modal').modal();
-//   $('#modal').modal('open');
-// });
 
 // ------------------begin code call to Napster API submit search to database and add to recent search list
 // handles for Jukebox()
@@ -43,6 +39,9 @@ function Jukebox() {
 var apiKey = "MjYxOTU3NTItZjAzZC00YTJlLWI0NTItY2IzYTkzNmNjZTc0";
 var optionsList = $('#search-option-list');
 
+//SeatGeek API key
+var clientID = "OTA5NzI3MnwxNTM4NTMyNDM0LjI0"
+
 // display search options
 $('#search-option-list,#musicList,.music-card').click(() => {
     $('#search-option-list').css({ 'display': 'none' });
@@ -62,6 +61,8 @@ $('#topic-input').on({
                     }
                 }
             })
+
+        
     },
     focus: (evt) => {
         $('#search-option-list').css({ 'display': 'flex' });
@@ -144,7 +145,7 @@ $('#topic-input').on('click', function (event) {
 // console.log(artist_name);
 
 // Event listener for addition to Firebase database and adding row to #new-artist tbody
-database.ref().on('child_added', function (childSnapshot) {
+database.ref().limitToLast(10).on('child_added', function (childSnapshot) {
     // console.log(childSnapshot.val());
 
     // handle for childSnapshot.val();
@@ -167,17 +168,51 @@ database.ref().on('child_added', function (childSnapshot) {
 // ------------------end code call to Napster API submit search to database and add to recent search list
 
 //ajax call for SeatGeek API---------------------------------------------------------------------------------------
-function seatGeek() {
-    var queryURL = 'https://api.seatgeek.com/2/events?&postal_code=77018&per_page=10&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0'
+function seatGeek() {    
+    
+    var artistName = $("#topic-input").val().trim();
+    var queryURL = `https://api.seatgeek.com/2/performers?q=${artistName}&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0`
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (results) {
 
-        console.log(results);
-        console.log(results.events[0]);
-
+        console.log(results.performers[0].name);
+        console.log(results.performers[0].url);
+        console.log(artistName);
+        $(".url").text(results.performers[0].url);
+        $(".url").replaceWith(`<a href="${results.performers[0].url}" target="_blank" >Click Me For ${artistName} Tickets!</a>`);
+        
     })
 };
+
+
+
+$('#topic-input').on('submit', function (event) {
+    seatGeek();
+    event.preventDefault();
+    // check if input not blank
+    if ($('#topic-input').val().trim() != "") {
+        // grab user inputs      
+        artist_name = $('.option').attr('data-name');
+        url = $(".option").attr('data-name');
+        // console.log(artist_id);
+        // console.log(artist_name);
+        console.log(url)
+        // store artist input in newArtist object
+        var newArtist = {
+            name: artist_name,
+            id: artist_id,
+            tickets: url
+        };
+        // console.log(newArtist);
+
+        // Push newArtist data to database
+        database.ref().push(newArtist);
+
+        // Reset artist search field
+        $('#topic-input').val("");
+    }
+});
   //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
