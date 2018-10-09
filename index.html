@@ -61,7 +61,7 @@
     <div class="row">
       <div class="col m2 s12">
         <p>
-          <h5>Recent Searches</h5>
+          <div class="heading-font">Recent Searches</div>
         </p>
         <table class="table table-sm table-hover" id="new-artist">
           <tbody></tbody>
@@ -78,8 +78,10 @@
 
           <div class="row center">
             <!-- replace search button with play/pause audio button -->
-            <a class="btn-large waves-effect waves-red lighten-3" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
+
+            <a class="btn-large waves-effect waves-red lighten-3" id="button-font" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
             <a id="url"></a>
+
             <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
 
             <!-- div Hyperlink to get tickets -->
@@ -152,23 +154,19 @@
 
   <!--Footer-->
 
-  <footer class="page-footer red lighten-3">
+  <footer class="page-footer blue-grey lighten-1">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
-            full
-            time job. Any amount would help support and continue development on this project and is greatly
-            appreciated.
+
+        <div class="col l10 s12">
+          <h5 class="white-text footer-font">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full
+            time job. Any amount would help support and continue development on this project and is greatly appreciated.
           </p>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col l5 s12">
+        <div class="col l2 s12">
           <!--Social Media Links-->
-          <h5 class="white-text">Connect</h5>
+          <h5 class="white-text footer-font">Connect</h5>
           <a class="icon" href="#" target="_blank" alt="Instagram"><i class="fa fa-instagram"></i></a>&nbsp;
           <a class="icon" href="#" target="_blank" alt="Twitter"><i class="fa fa-twitter"></i></a>&nbsp;
           <a class="icon" href="#" target="_blank" alt="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;
