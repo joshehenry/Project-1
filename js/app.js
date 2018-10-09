@@ -182,7 +182,7 @@ function seatGeek() {
         console.log(artist_name);
 
         // replace html <a class="url"></a>
-        $(".url").replaceWith(`<a class="url" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
+        $(".url").replaceWith(`<a class="btn-large waves-effect waves-red lighten-3" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
 
     })
 };
