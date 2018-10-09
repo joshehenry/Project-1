@@ -91,11 +91,11 @@ function loadTracks(evt) {
             var arrSongs = response.tracks;
             arrSongs.forEach((elem) => {
                 song_list.append(
-                    `<div class="music-card" data-song="${elem.previewURL}" style="background-image:url(http://direct.napster.com/imageserver/v2/albums/${elem.albumId}/images/200x200.jpg);" onClick="jukeBox.playSelected(this)">
-                <h6>${elem.name}</h6>
-                <div class="songImg">
-                </div>
-               </div>`)
+                    `<div class="music-card-container">
+                      <div class="music-card" data-song="${elem.previewURL}" style="background-image:url(http://direct.napster.com/imageserver/v2/albums/${elem.albumId}/images/200x200.jpg);" onClick="jukeBox.playSelected(this)">
+                      <div class="songImg">
+                      </div>
+                    </div><h6>${elem.name}</h6></div>`)
             });
             handleSound(arrSongs[0].previewURL);
         }
@@ -182,7 +182,7 @@ function seatGeek() {
         console.log(artist_name);
 
         // replace html <a class="url"></a>
-        $(".url").replaceWith(`<a class="url" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
+        $("#url").replaceWith(`<a id="url" class="btn-large waves-effect waves-red lighten-3" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
 
     })
 };
