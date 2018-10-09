@@ -176,8 +176,8 @@ function seatGeek() {
         console.log(results.performers[0].name);
         console.log(artist_url);
         console.log(artist_name);
-        $(".url").text(artist_url);
-        $(".url").replaceWith(`<a href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
+        // $(".url").text(artist_url);
+        $(".url").replaceWith(`<a class="url" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
         
     })
 };
