@@ -1,9 +1,3 @@
-const Calendar = document.querySelector('.datepicker');
-M.Datepicker.init(Calendar, {
-    showClearBtn: true
-});
-
-// ------------------begin code call to Napster API submit search to database and add to recent search list
 // handles for Jukebox()
 var jukeBox = new Jukebox();
 var player = new Audio();
@@ -38,15 +32,12 @@ function Jukebox() {
 var apiKey = "MjYxOTU3NTItZjAzZC00YTJlLWI0NTItY2IzYTkzNmNjZTc0";
 var optionsList = $('#search-option-list');
 
-//SeatGeek API key
-var clientID = "OTA5NzI3MnwxNTM4NTMyNDM0LjI0"
-
 // display search options
 $('#search-option-list,#musicList,.music-card').click(() => {
     $('#search-option-list').css({ 'display': 'none' });
 })
 
-// first three letters returns artist name for search; click option to loadtracks
+// first three letters returns artist name for search
 $('#topic-input').on({
     input: (evt) => {
         if (evt.target.value.length > 3)
@@ -59,30 +50,23 @@ $('#topic-input').on({
                         optionsList.append(`<div class="option" data-name="${response.search.data.artists[i].name}" data-id="${response.search.data.artists[i].id}" onClick="loadTracks(this)">${response.search.data.artists[i].name}</div>`);
                     }
                 }
-            })     
+            })
     },
     focus: (evt) => {
         $('#search-option-list').css({ 'display': 'flex' });
     }
 })
 
-// function handle to load 10 tracks and declaration of global variables
+// function called to load 10 tracks
 var song_list = $('#musicList');
 var artist_name = "";
 var artist_id = "";
-var artist_url = "";
 
 // function to load top 10 artist tracks from AJAX call to Napster API
 function loadTracks(evt) {
     song_list.empty();
     artist_id = $(evt).attr('data-id');
     artist_name = $(evt).attr('data-name');
-    // console.log(artist_id);
-    // console.log(artist_name);
-
-    // call w/pass artist_name to SeatGeek API
-    seatGeek(artist_name);
-
     $.ajax({
         url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=10`
         ,
@@ -120,29 +104,31 @@ $('#topic-input').on('click', function (event) {
     event.preventDefault();
     // check if input not blank
     if ($('#topic-input').val().trim() != "") {
-        // console.log(artist_id);
-        // console.log(artist_name);
-        // console.log(artist_url);
+        // grab user inputs
+    artist_id = $('.option').attr('data-id');
+    artist_name = $('.option').attr('data-name');
+    console.log(artist_id);
+    console.log(artist_name);
+    // store artist input in newArtist object
+    var newArtist = {
+        name: artist_name,
+        id: artist_id
+    };
+    console.log(newArtist);
 
-        // store global artist parameters in newArtist object
-        var newArtist = {
-            name: artist_name,
-            id: artist_id,
-            url: artist_url
-        };
-        // console.log(newArtist);
+    // Push newArtist data to database
+    database.ref().push(newArtist);
 
-        // Push newArtist data to database
-        database.ref().push(newArtist);
-
-        // Reset artist search field
-        $('#topic-input').val("");
+    // Reset artist search field
+    $('#topic-input').val("");
     }
 });
+console.log(artist_id);
+console.log(artist_name);
 
 // Event listener for addition to Firebase database and adding row to #new-artist tbody
 database.ref().limitToLast(10).on('child_added', function (childSnapshot) {
-    // console.log(childSnapshot.val());
+    console.log(childSnapshot.val());
 
     // handle for childSnapshot.val();
     var snap = childSnapshot.val();
@@ -150,38 +136,15 @@ database.ref().limitToLast(10).on('child_added', function (childSnapshot) {
     // grab variables from snap
     artist_id = snap.id;
     artist_name = snap.name;
-    artist_url = snap.url;
-    // console.log(artist_id);
-    // console.log(artist_name);
-    // console.log(artist_url);
+    console.log(artist_id);
+    console.log(artist_name);
 
-    // create new row; clickable to load top tracks from artist
-    var newRow = $("<tr>").append(
+    // create new row
+    var newRow = $('<tr>').append(
         $(`<td data-name="${artist_name}" data-id="${artist_id}" onClick="loadTracks(this)">${artist_name}</td>`)
     );
 
     // append new row to table
     $('#new-artist > tbody').prepend(newRow);
+
 });
-// ------------------end code call to Napster API submit search to database and add to recent search list
-
-//ajax call for SeatGeek API---------------------------------------------------------------------------------------
-function seatGeek() {    
-    
-    var queryURL = `https://api.seatgeek.com/2/performers?q=${artist_name}&client_id=OTA5NzI3MnwxNTM4NTMyNDM0LjI0`
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (results) {
-        artist_url = results.performers[0].url;
-        console.log(results.performers[0].name);
-        console.log(artist_url);
-        console.log(artist_name);
-
-        // replace html <a class="url"></a>
-        $(".url").replaceWith(`<a class="url" href="${artist_url}" target="_blank" >Click Me For ${artist_name} Tickets!</a>`);
-        
-    })
-};
-  //ajax call for SeatGeek API -----------------------------------------------------------------------------------------------------
