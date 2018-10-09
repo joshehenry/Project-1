@@ -145,7 +145,7 @@ $('#topic-input').on('click', function (event) {
 // console.log(artist_name);
 
 // Event listener for addition to Firebase database and adding row to #new-artist tbody
-database.ref().on('child_added', function (childSnapshot) {
+database.ref().limitToLast(10).on('child_added', function (childSnapshot) {
     // console.log(childSnapshot.val());
 
     // handle for childSnapshot.val();
