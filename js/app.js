@@ -84,7 +84,7 @@ function loadTracks(evt) {
     seatGeek(artist_name);
 
     $.ajax({
-        url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=10`
+        url: `http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${apiKey}&limit=12`
         ,
         success: function (response) {
             var arrSongs = response.tracks;
