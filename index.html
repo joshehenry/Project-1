@@ -51,36 +51,51 @@
       </div>
 
     </div>
-    <br><br>
-    <div class="container">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input" class="search">
-              <!-- div displaying search options -->
-              <div class="s6 light" id="search-option-list">
-              </div>
+  </div>
+
+  <br><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col m2 s12">
+        <p>
+          <h5>Recent Searches</h5>
+        </p>
+        <table class="table table-sm table-hover" id="new-artist">
+          <tbody></tbody>
+        </table>
+      </div>
+      <form class="col m10 s12">
+        <div class="row">
+          <div class="input-field col m10 s12">
+            <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input" class="header col s12 light">
+            <div class="url"><a href=""></a></div>
+
+            <!-- div displaying search options -->
+            <div class="s6 light" id="search-option-list">
             </div>
           </div>
-        </form>
-      </div>
-      <div class="row center">
-        <!-- replace search button with play/pause audio button -->
-        <a class="btn-large waves-effect waves-red lighten-3" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
-        <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
-      </div>
+          <div class="row center">
+            <!-- replace search button with play/pause audio button -->
+            <a class="btn-large waves-effect waves-red lighten-3" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
+            <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
+          </div>
+          <!-- <div class="container">
+            <div class="row"> -->
+              <!-- div displaying music tracks -->
+              <div class="col s12" id="musicList"></div>
+            <!-- </div>
+          </div> -->
+        </div>
+      </form>
     </div>
-    <br><br>
 
+  </div>
 
-    <div class="container">
-      <div class="row">
-        <!-- div displaying music tracks -->
-        <div class="col s12" id="musicList"></div>
+  <br><br>
 
-        <!-- DATEPICKER commented out until we are okay to use-->
-        <!-- <div class="col s12 m6">
+  <!-- DATEPICKER commented out until further notice-->
+  <!-- <div class="col s12 m6">
           <h3>DATEPICKER</h3>
           <form>
             <div class="input-field">
@@ -89,48 +104,38 @@
           </form>
         </div> -->
 
-        <!-- div displaying recent searches -->
-        <div class="col s12" id="new-artist">
-          <p>
-            <h5>Recent Searches</h5>
-          </p>
-          <table class="table table-sm table-hover" id="new-artist">
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+  <!-- div displaying recent searches -->
 
-    <div class="container">
-      <table class="centered highlight responsive-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Item Name</th>
-            <th>Item Price</th>
-          </tr>
-        </thead>
+  <!-- TICKET SCHEDULE TABLE commented out until further notice-->
+  <!-- <div class="container">
+    <table class="centered highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <tr>
-            <td>Lorem Ipsum</td>
-            <td>Lorem Ipsum</td>
-            <td>$price</td>
-          </tr>
-          <tr>
-            <td>Lorem Ipsum</td>
-            <td>Lorem Ipsum</td>
-            <td>$price</td>
-          </tr>
-          <tr>
-            <td>Lorem Ipsum</td>
-            <td>Lorem Ipsum</td>
-            <td>$price</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+      <tbody>
+        <tr>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
+          <td>$price</td>
+        </tr>
+        <tr>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
+          <td>$price</td>
+        </tr>
+        <tr>
+          <td>Lorem Ipsum</td>
+          <td>Lorem Ipsum</td>
+          <td>$price</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
 
   <br><br>
 
@@ -158,9 +163,9 @@
         <div class="col l5 s12">
           <!--Social Media Links-->
           <h5 class="white-text">Connect</h5>
-          <a class="icon" href="#" target="_blank" alt="Instagram"><i class="fa fa-instagram"></i></a>
-          <a class="icon" href="#" target="_blank" alt="Twitter"><i class="fa fa-twitter"></i></a>
-          <a class="icon" href="#" target="_blank" alt="Facebook"><i class="fa fa-facebook"></i></a>
+          <a class="icon" href="#" target="_blank" alt="Instagram"><i class="fa fa-instagram"></i></a>&nbsp;
+          <a class="icon" href="#" target="_blank" alt="Twitter"><i class="fa fa-twitter"></i></a>&nbsp;
+          <a class="icon" href="#" target="_blank" alt="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;
           <a class="icon" href="#" target="_blank" alt="Snapchat"><i class="fa fa-snapchat"></i></a><br>
           <span>Copyright&copy;2018</span>
         </div>
