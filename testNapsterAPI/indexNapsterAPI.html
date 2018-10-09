@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CDN link for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- link local CSS -->
+    <link rel="stylesheet" type="text/css" href="./styleNapsterAPI.css">
+
+    <title>TestCode</title>
+</head>
+
+<body>
+    <!-- div displaying recent searches -->
+    <div class="container shadow mb-3">
+        <div class="row p-3">
+            <div class="col-xm">
+                <p>
+                    <h5>Recent Searches</h5>
+                </p>
+                <table class="table table-sm table-hover" id="new-artist">
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- div housing form  -->
+            <div class="col p-3">
+                <form class="form-vertical">
+                    <div class="form-group">
+                        <div class="col">
+                            <input type="text" class="form-control" id="topic-input" placeholder="Search your favorite artist"
+                                name="topic-input">
+                            <div class="container shadow mb-3 p-4" id="search-option-list"></div>
+                        </div>
+                        <!-- div displaying tracks -->
+                        <div>
+                            <div class="col">
+                                <div class="container shadow mb-3 p-4">
+                                    <button class="btn btn-default" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</button>
+                                    <a class="url"></a>
+                                    <div id="musicList">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- <div class="container shadow mb-3 p-4" id="search-option-list"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- div displaying tracks
+    <div class="container shadow p-3 mb-3">
+        <div class="col">
+            <div class="col">
+                <button class="btn btn-default" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</button>
+            </div>
+            <div id="musicList">
+            </div>
+        </div>
+    </div> -->
+
+    <footer class="container shadow p-3 mb-3 relative-bottom text-center text-secondary">
+        <p>Copyright &copy</p>
+    </footer>
+
+</body>
+
+<!-- Firebase Database Link -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+
+<!-- CDN link for jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+<!-- link local JavaScript -->
+<!-- <script type="text/javascript" src="./testcodeNapsterAPI.js"></script> -->
+<script type="text/javascript" src="./testcodeNapsterSeatGeekAPI.js"></script>
+
+</html>
