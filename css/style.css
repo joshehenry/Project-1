@@ -1,5 +1,6 @@
 body, html {
   height: 100%;
+  background-image: url()
 }
 
 .form {
@@ -21,12 +22,23 @@ body, html {
   position: relative;
 }
 
+
 .image1 {
-  background-image: url("../images/concert.jpg");
+  background-image: url("../images/concert.jpg"), linear-gradient(145deg, #FFE53B 0%, #FF2525 74%);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .image2 {
-  background-image:  url("../images/event.jpg");
+  background-image:  url("../images/event.jpg"), linear-gradient(145deg, #FFE53B 0%, #FF2525 74%);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #headline {
@@ -117,6 +129,10 @@ h6 {
 
 /* Social Media Icons */
 
+#footer-logobox {
+ margin-left: 0;
+}
+
 .icon{
   font-size: 2rem;
   color: #fff;
@@ -127,6 +143,15 @@ h6 {
   vertical-align: middle;
 }
 
+#seatGeek-logo {
+  width: 100px;
+  vertical-align: middle;
+}
+
+#napster-logo {
+  width: 50px;
+  vertical-align: middle;
+}
 
 /* media queries */
 
