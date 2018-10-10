@@ -33,7 +33,7 @@ body, html {
 }
 
 .image2 {
-  background-image:  url("../images/event.jpg"), linear-gradient(145deg, #FFE53B 0%, #FF2525 74%);
+  background-image:  url("../images/event.jpg"), linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
   background-blend-mode: multiply;
   background-attachment: fixed;
   background-position: center;
