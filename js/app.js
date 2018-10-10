@@ -1,9 +1,3 @@
-// Materialize Calendar app
-// const Calendar = document.querySelector('.datepicker');
-// M.Datepicker.init(Calendar, {
-//     showClearBtn: true
-// });
-
 // ------------------begin code call to Napster API submit search to database and add to recent search list
 // handles for Jukebox()
 var jukeBox = new Jukebox();
