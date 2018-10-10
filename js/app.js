@@ -52,7 +52,7 @@ $('#topic-input').on({
     input: (evt) => {
         if (evt.target.value.length > 3)
             $.ajax({
-                url: `http://api.napster.com/v2.2/search?apikey=${apiKey}&query=${evt.target.value}&type=artist`
+                url: `https://api.napster.com/v2.2/search?apikey=${apiKey}&query=${evt.target.value}&type=artist`
                 ,
                 success: function (response) {
                     optionsList.empty();
