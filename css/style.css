@@ -9,6 +9,7 @@ body, html {
 
 #concert-logo {
   width: 500px;
+  max-width: 95%;
 }
 
 .image1,
