@@ -104,6 +104,7 @@ h6 {
 
 .option:hover{
   background-color: #afdaeb;
+  width: 100%;
 }
 
 #tag-line {
@@ -117,6 +118,11 @@ h6 {
   text-transform: uppercase;
 }
 
+.btn-large {
+  color: white;
+}
+
+
 
 
 /* Footer */
@@ -125,6 +131,10 @@ h6 {
   font-family: 'Fjalla One', sans-serif;
   font-size: 2rem;
   margin-bottom: 0px;
+}
+
+#play{
+  color: black;
 }
 
 /* Social Media Icons */

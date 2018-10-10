@@ -41,11 +41,13 @@
         <h3 class="center" id="headline">Your Music. Your Artists. Your Connection.</h3>
 
         <div class="container">
-          <h5 class="light">With Concert Live you can search your favorite artists and where they're scheduled to play. Whether
-            it be in your town or anywhere around the world. Concert Live has you covered.
+          <h5 class="light">Listen while you browse. With Concert Live you can search an artist, listen to their music and see their performance dates.
+            Whether
+            it be in your town or anywhere around the world, Concert Live has you covered.
           </h5>
-          <h5 class="light">Simply search your artist below, while you listen to them play and find the next concert that
-            you'd like to hit up.
+          <h5 class="light">Search your artist below and while you listen to them play, find the next concert
+            that
+            you'd like go to via SeatGeek. Concert-goers, take the guess work out of deciding who to see with this one stop-shop platform of music listening and concert browsing.
           </h5>
         </div>
       </div>
@@ -67,26 +69,28 @@
       </div>
       <form class="col m10 s12">
         <div class="row">
-          <div class="input-field col m10 s12">
-            <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input" class="header col s12 light">
-            <div class="url"><a href=""></a></div>
+          <div class="input-field col s12">
+            <input type="text" placeholder="Search your favorite artist and where they're playing!" id="topic-input"
+              class="header col s12 light">
+            <!-- div displaying search options -->
+            <div class="col s12 light" id="search-option-list"></div>
           </div>
 
           <div class="row center">
             <!-- replace search button with play/pause audio button -->
-            <a class="btn-large waves-effect waves-red lighten-3" id="button-font" type="button" id="play" onclick="jukeBox.play_pause()">Play/Pause</a>
+            <a class="btn-large waves-effect waves-red lighten-3" onclick="jukeBox.play_pause()">Play | Pause</a>
+            <!-- Hyperlink to get tickets -->
+            <a id="url"></a>
+
             <!-- <a href="login_page.html" id="download-button" class="btn-large waves-effect waves-red lighten-3">Search</a> -->
+            <!-- div with Hyperlink to get tickets -->
+            <!-- <div class="row center">
+              <a id="url"></a>
+            </div> -->
           </div>
 
-          <!-- div displaying search options -->
-          <div class="col s12 light" id="search-option-list"></div>
-
-          <!-- <div class="container">
-            <div class="row"> -->
           <!-- div displaying music tracks -->
-          <div class="col s12" id="musicList"></div>
-          <!-- </div>
-          </div> -->
+          <div class="col s12 light" id="musicList"></div>
         </div>
       </form>
     </div>
@@ -94,50 +98,6 @@
   </div>
 
   <br><br>
-
-  <!-- DATEPICKER commented out until further notice-->
-  <!-- <div class="col s12 m6">
-          <h3>DATEPICKER</h3>
-          <form>
-            <div class="input-field">
-              <input type="text" class="datepicker">
-            </div>
-          </form>
-        </div> -->
-
-  <!-- div displaying recent searches -->
-
-  <!-- TICKET SCHEDULE TABLE commented out until further notice-->
-  <!-- <div class="container">
-    <table class="centered highlight responsive-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Item Name</th>
-          <th>Item Price</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>Lorem Ipsum</td>
-          <td>Lorem Ipsum</td>
-          <td>$price</td>
-        </tr>
-        <tr>
-          <td>Lorem Ipsum</td>
-          <td>Lorem Ipsum</td>
-          <td>$price</td>
-        </tr>
-        <tr>
-          <td>Lorem Ipsum</td>
-          <td>Lorem Ipsum</td>
-          <td>$price</td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
-
   <br><br>
 
   <!--Image 2-->
@@ -152,19 +112,22 @@
   <footer class="page-footer blue-grey lighten-1">
     <div class="container">
       <div class="row">
+
         <div class="col l10 s12">
           <h5 class="white-text footer-font">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full
-            time job. Any amount would help support and continue development on this project and is greatly appreciated.
+          <p class="grey-text text-lighten-4">We are a team of developers aiming to streamline the concert going experience for music 
+            lovers everywhere. Through our mutual love for music 
+            we have created a service with the power of the SeatGeek and Napster APIs to combine 
+            music searches with cheap ticket prices.
           </p>
         </div>
         <div class="col l2 s12">
           <!--Social Media Links-->
           <h5 class="white-text footer-font">Connect</h5>
-          <a class="icon" href="#" target="_blank" alt="Instagram"><i class="fa fa-instagram"></i></a>&nbsp;
-          <a class="icon" href="#" target="_blank" alt="Twitter"><i class="fa fa-twitter"></i></a>&nbsp;
-          <a class="icon" href="#" target="_blank" alt="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;
-          <a class="icon" href="#" target="_blank" alt="Snapchat"><i class="fa fa-snapchat"></i></a><br>
+          <a class="icon" href="https://www.instagram.com/" target="_blank" alt="Instagram"><i class="fa fa-instagram"></i></a>&nbsp;
+          <a class="icon" href="https://twitter.com/?lang=en" target="_blank" alt="Twitter"><i class="fa fa-twitter"></i></a>&nbsp;
+          <a class="icon" href="https://www.facebook.com/" target="_blank" alt="Facebook"><i class="fa fa-facebook"></i></a>&nbsp;
+          <a class="icon" href="https://www.snapchat.com/" target="_blank" alt="Snapchat"><i class="fa fa-snapchat"></i></a><br>
           <span>Copyright&copy;2018</span>
         </div>
       </div>
@@ -188,7 +151,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
   <!-- CDN JavaScript Library Links -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
   <!-- Local Javascript Links -->
   <script src="./js/app.js"></script>
 
